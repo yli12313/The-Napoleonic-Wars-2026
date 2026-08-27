@@ -1,5 +1,7 @@
 # The Battles of Napoleon Bonaparte 🇫🇷
 
+### Presentation slides located [here](https://github.com/yli12313/Presentations-Given/blob/main/20260820_Data_Viz_Napoleonic_Wars_Lightning_Talk/20260820_A_Data_Visualization_of_the_Napoleonic_Wars.pdf).
+
 <img width="1692" height="876" alt="image" src="https://github.com/user-attachments/assets/c9a0dd25-6eb4-4e76-8da4-c84b143c318e" />
 
 An interactive dark-themed map of **every engagement Napoleon Bonaparte
