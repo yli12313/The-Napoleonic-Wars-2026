@@ -19,7 +19,7 @@ async function newPage(browser, size, extra = {}) {
   page.on('pageerror', (e) => errors.push(`[pageerror] ${e.message}`));
   page.on('requestfailed', (r) => {
     const u = r.url();
-    if (!u.includes('basemaps.cartocdn.com')) errors.push(`[requestfailed] ${u} :: ${r.failure()?.errorText}`);
+    if (!u.includes('arcgisonline.com')) errors.push(`[requestfailed] ${u} :: ${r.failure()?.errorText}`);
   });
   return { ctx, page };
 }

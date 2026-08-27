@@ -59,10 +59,20 @@ export default function BattleMap(props: Props) {
       preferCanvas={false}
       attributionControl
     >
+      {/* Esri's Dark Gray Canvas: keyless, and split base/labels so the
+          landmass can be tinted without dragging the place names with it. */}
       <TileLayer
-        url="https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png"
-        attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>'
-        subdomains="abcd"
+        className="basemap-ground"
+        url="https://services.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Dark_Gray_Base/MapServer/tile/{z}/{y}/{x}"
+        attribution='Tiles &copy; <a href="https://www.esri.com/">Esri</a> &mdash; Esri, DeLorme, HERE, &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &mdash; imperial arms by <a href="https://commons.wikimedia.org/wiki/File:Coat_of_arms_of_the_First_French_Empire,_round_shield_version.svg">Katepanomegas</a> (<a href="https://creativecommons.org/licenses/by-sa/3.0/">CC BY-SA 3.0</a>)'
+        maxNativeZoom={16}
+        maxZoom={20}
+        noWrap
+      />
+      <TileLayer
+        className="basemap-labels"
+        url="https://services.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Dark_Gray_Reference/MapServer/tile/{z}/{y}/{x}"
+        maxNativeZoom={16}
         maxZoom={20}
         noWrap
       />

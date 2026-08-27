@@ -28,7 +28,7 @@ An interactive dark-themed web map of every battle Napoleon personally commanded
 - [x] Header with typographic authority; layered translucent panels
 
 ## 4. Map
-- [x] CARTO dark_matter tiles, correct attribution
+- [x] Esri Dark Gray Canvas tiles (keyless), correct attribution
 - [x] maxBounds / min+max zoom framing Europe, reaching Egypt & Moscow
 - [x] divIcon markers: hue = result, size = significance, shape = siege vs battle
 - [x] Decisive-battle pulse, gated on `prefers-reduced-motion`

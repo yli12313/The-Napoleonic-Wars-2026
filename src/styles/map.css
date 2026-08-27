@@ -6,23 +6,30 @@
   inset: 0;
   width: 100%;
   height: 100%;
-  background: #06070a;
+  background: #050810;
   z-index: 1;
   font-family: var(--font-ui);
 }
 
-/* Warm the cold CARTO basemap slightly towards aged paper. */
-.battle-map .leaflet-tile-pane {
-  filter: saturate(0.72) brightness(1.06) contrast(1.04) sepia(0.16) hue-rotate(-8deg);
+/* Push the Esri basemap towards deep navy so blue reads as the ground note.
+   Ground and labels are separate layers, so each gets the treatment it needs. */
+.battle-map .basemap-ground {
+  filter: saturate(0.6) brightness(0.72) contrast(1.14) sepia(0.4) hue-rotate(178deg);
+}
+
+/* Labels ship white-hot; pull them back so markers stay the loudest thing. */
+.battle-map .basemap-labels {
+  filter: saturate(0.45) brightness(0.85) sepia(0.35) hue-rotate(178deg);
+  opacity: 0.72;
 }
 
 .leaflet-container {
-  background: #06070a;
+  background: #050810;
   outline: none;
 }
 
 .leaflet-container a {
-  color: var(--gold-600);
+  color: var(--accent-600);
 }
 
 /* -------------------------------------------------------- markers */
@@ -70,9 +77,9 @@
   place-items: center;
   border-radius: 50%;
   background: var(--c);
-  border: 1.5px solid rgba(6, 7, 10, 0.85);
+  border: 1.5px solid rgba(4, 7, 14, 0.85);
   box-shadow:
-    0 0 0 1px rgba(6, 7, 10, 0.6),
+    0 0 0 1px rgba(4, 7, 14, 0.6),
     0 2px 8px rgba(0, 0, 0, 0.7),
     0 0 14px -2px var(--c);
   transition: transform 160ms var(--ease), box-shadow 160ms var(--ease);
@@ -86,7 +93,7 @@
 
 /* Defeats are hollow rings: distinguishable without relying on hue. */
 .battle-marker.is-defeat .marker-shape {
-  background: rgba(7, 8, 11, 0.92);
+  background: rgba(5, 8, 16, 0.92);
   border: 3px solid var(--c);
   box-shadow:
     0 2px 8px rgba(0, 0, 0, 0.7),
@@ -107,7 +114,7 @@
   width: 72%;
   height: 2px;
   border-radius: 1px;
-  background: rgba(7, 8, 11, 0.92);
+  background: rgba(5, 8, 16, 0.92);
 }
 
 .battle-marker.is-decisive .marker-shape {
@@ -115,7 +122,7 @@
 }
 
 .battle-marker.is-decisive.is-victory .marker-shape {
-  background: radial-gradient(circle at 34% 30%, var(--gold-400), var(--gold-600) 70%);
+  background: radial-gradient(circle at 34% 30%, var(--accent-300), var(--accent-600) 70%);
 }
 
 /* Pulse for decisive engagements. */
@@ -155,7 +162,7 @@
   }
   .battle-marker.is-decisive .marker-shape {
     box-shadow:
-      0 0 0 3px rgba(232, 185, 63, 0.16),
+      0 0 0 3px rgba(93, 156, 236, 0.16),
       0 2px 8px rgba(0, 0, 0, 0.7);
   }
 }
@@ -168,7 +175,7 @@
 .battle-marker-wrap:hover .marker-shape {
   transform: scale(1.35);
   box-shadow:
-    0 0 0 2px rgba(236, 227, 210, 0.35),
+    0 0 0 2px rgba(232, 238, 247, 0.35),
     0 4px 14px rgba(0, 0, 0, 0.8),
     0 0 22px -2px var(--c);
 }
@@ -205,11 +212,11 @@
   inset: 4px;
   border-radius: 50%;
   background:
-    radial-gradient(circle at 34% 28%, rgba(201, 162, 39, 0.28), transparent 62%),
-    rgba(12, 14, 18, 0.86);
-  border: 1px solid rgba(201, 162, 39, 0.42);
+    radial-gradient(circle at 34% 28%, rgba(58, 124, 201, 0.28), transparent 62%),
+    rgba(10, 14, 24, 0.86);
+  border: 1px solid rgba(58, 124, 201, 0.42);
   box-shadow:
-    inset 0 0 12px rgba(201, 162, 39, 0.14),
+    inset 0 0 12px rgba(58, 124, 201, 0.14),
     0 4px 16px rgba(0, 0, 0, 0.7);
   -webkit-backdrop-filter: blur(3px);
   backdrop-filter: blur(3px);
@@ -220,12 +227,12 @@
   position: absolute;
   inset: 0;
   border-radius: 50%;
-  border: 1px solid rgba(201, 162, 39, 0.18);
+  border: 1px solid rgba(58, 124, 201, 0.18);
 }
 
 .battle-cluster.has-decisive .cluster-ring {
-  border-color: rgba(232, 185, 63, 0.45);
-  box-shadow: 0 0 16px -4px rgba(232, 185, 63, 0.5);
+  border-color: rgba(93, 156, 236, 0.45);
+  box-shadow: 0 0 16px -4px rgba(93, 156, 236, 0.5);
 }
 
 .cluster-count {
@@ -235,7 +242,7 @@
   font-size: 12.5px;
   letter-spacing: -0.02em;
   line-height: 1;
-  color: var(--gold-400);
+  color: var(--accent-300);
   text-shadow: 0 1px 4px rgba(0, 0, 0, 0.8);
   font-variant-numeric: tabular-nums;
 }
@@ -252,15 +259,15 @@
 
 .battle-cluster-wrap:hover .battle-cluster::before {
   transform: scale(1.08);
-  border-color: rgba(232, 185, 63, 0.75);
+  border-color: rgba(93, 156, 236, 0.75);
 }
 
 /* -------------------------------------------------------- tooltip */
 .battle-tooltip.leaflet-tooltip {
   padding: 5px 10px;
   color: var(--parchment);
-  background: rgba(10, 12, 16, 0.94);
-  border: 1px solid rgba(201, 162, 39, 0.3);
+  background: rgba(8, 12, 21, 0.94);
+  border: 1px solid rgba(58, 124, 201, 0.3);
   border-radius: 6px;
   box-shadow: 0 8px 22px -8px rgba(0, 0, 0, 0.95);
   -webkit-backdrop-filter: blur(8px);
@@ -270,7 +277,7 @@
 }
 
 .battle-tooltip.leaflet-tooltip::before {
-  border-top-color: rgba(201, 162, 39, 0.3);
+  border-top-color: rgba(58, 124, 201, 0.3);
 }
 
 .battle-tooltip .tt-name {
@@ -284,7 +291,7 @@
   margin-left: 7px;
   font-size: 10px;
   letter-spacing: 0.1em;
-  color: var(--gold-600);
+  color: var(--accent-600);
   font-variant-numeric: tabular-nums;
 }
 
@@ -294,7 +301,7 @@
   padding: 0;
   color: var(--parchment);
   background: linear-gradient(180deg, rgba(17, 19, 25, 0.97), rgba(11, 12, 16, 0.97));
-  border: 1px solid rgba(201, 162, 39, 0.26);
+  border: 1px solid rgba(58, 124, 201, 0.26);
   border-radius: var(--r-lg);
   box-shadow: 0 30px 70px -22px rgba(0, 0, 0, 0.95), 0 0 0 1px rgba(0, 0, 0, 0.4);
   -webkit-backdrop-filter: blur(16px);
@@ -330,7 +337,7 @@
 
 .battle-popup .leaflet-popup-tip {
   background: rgba(12, 13, 17, 0.97);
-  border: 1px solid rgba(201, 162, 39, 0.26);
+  border: 1px solid rgba(58, 124, 201, 0.26);
   box-shadow: none;
 }
 
@@ -349,7 +356,7 @@
 
 .battle-popup .leaflet-popup-close-button:hover {
   color: var(--parchment);
-  background: rgba(236, 227, 210, 0.08);
+  background: rgba(232, 238, 247, 0.08);
 }
 
 .pop {
@@ -391,13 +398,13 @@
   width: 6px;
   height: 6px;
   border-radius: 50%;
-  background: var(--gold-500);
-  box-shadow: 0 0 8px var(--gold-glow);
+  background: var(--accent-500);
+  box-shadow: 0 0 8px var(--accent-glow);
 }
 
 .pop.is-defeat .pop-dot {
   background: var(--result-defeat);
-  box-shadow: 0 0 8px rgba(91, 143, 214, 0.5);
+  box-shadow: 0 0 8px rgba(232, 185, 63, 0.5);
 }
 .pop.is-inconclusive .pop-dot {
   background: var(--result-inconclusive);
@@ -434,20 +441,20 @@
   letter-spacing: 0.09em;
   text-transform: uppercase;
   color: var(--parchment-dim);
-  background: rgba(236, 227, 210, 0.06);
+  background: rgba(232, 238, 247, 0.06);
   border: 1px solid var(--panel-border-soft);
   border-radius: 99px;
 }
 
 .pop.is-victory .chip-result {
-  color: var(--gold-400);
-  background: rgba(232, 185, 63, 0.12);
-  border-color: rgba(232, 185, 63, 0.35);
+  color: var(--accent-300);
+  background: rgba(93, 156, 236, 0.12);
+  border-color: rgba(93, 156, 236, 0.35);
 }
 .pop.is-defeat .chip-result {
-  color: var(--blue-300);
-  background: rgba(91, 143, 214, 0.14);
-  border-color: rgba(91, 143, 214, 0.38);
+  color: var(--amber-300);
+  background: rgba(232, 185, 63, 0.14);
+  border-color: rgba(232, 185, 63, 0.38);
 }
 .pop.is-inconclusive .chip-result {
   color: #c3cad2;
@@ -552,7 +559,7 @@
   height: 32px !important;
   line-height: 30px !important;
   color: var(--parchment-dim) !important;
-  background: rgba(12, 14, 18, 0.88) !important;
+  background: rgba(10, 14, 24, 0.88) !important;
   border: 1px solid var(--panel-border-soft) !important;
   -webkit-backdrop-filter: blur(10px);
   backdrop-filter: blur(10px);
@@ -560,8 +567,8 @@
 }
 
 .leaflet-control-zoom a:hover {
-  color: var(--gold-400) !important;
-  background: rgba(22, 25, 32, 0.94) !important;
+  color: var(--accent-300) !important;
+  background: rgba(18, 25, 39, 0.94) !important;
 }
 
 .leaflet-control-zoom a:first-child {
@@ -572,14 +579,14 @@
   padding: 3px 8px !important;
   font-size: 10px !important;
   color: var(--parchment-faint) !important;
-  background: rgba(8, 9, 12, 0.78) !important;
+  background: rgba(6, 9, 17, 0.78) !important;
   border-top-left-radius: 6px;
   -webkit-backdrop-filter: blur(8px);
   backdrop-filter: blur(8px);
 }
 
 .leaflet-control-attribution a {
-  color: var(--gold-600) !important;
+  color: var(--accent-600) !important;
 }
 
 .leaflet-bottom.leaflet-right .leaflet-control-zoom {

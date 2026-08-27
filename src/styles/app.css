@@ -25,10 +25,10 @@
   justify-content: space-between;
   gap: 16px;
   padding: 0 22px;
-  background: linear-gradient(180deg, rgba(8, 9, 12, 0.96), rgba(8, 9, 12, 0.86));
+  background: linear-gradient(180deg, rgba(6, 9, 17, 0.96), rgba(6, 9, 17, 0.86));
   -webkit-backdrop-filter: blur(14px);
   backdrop-filter: blur(14px);
-  border-bottom: 1px solid rgba(201, 162, 39, 0.16);
+  border-bottom: 1px solid rgba(58, 124, 201, 0.16);
   box-shadow: 0 10px 30px -14px rgba(0, 0, 0, 0.95);
 }
 
@@ -40,7 +40,7 @@
   right: 0;
   bottom: -1px;
   height: 1px;
-  background: linear-gradient(90deg, transparent, var(--gold-600) 12%, rgba(201, 162, 39, 0.25) 46%, transparent 92%);
+  background: linear-gradient(90deg, transparent, var(--accent-600) 12%, rgba(58, 124, 201, 0.25) 46%, transparent 92%);
   opacity: 0.75;
 }
 
@@ -51,25 +51,15 @@
   min-width: 0;
 }
 
-.monogram {
+/* The imperial arms of the First French Empire -- crowned eagle on the
+   round shield, mantled in ermine.  Taller than it is wide, so it is sized
+   by height and left to keep its own aspect. */
+.seal-mark {
   flex: 0 0 auto;
-  width: 40px;
-  height: 40px;
-  display: grid;
-  place-items: center;
-  font-family: var(--font-display);
-  font-size: 24px;
-  font-weight: 600;
-  line-height: 1;
-  color: var(--gold-400);
-  border: 1px solid rgba(201, 162, 39, 0.45);
-  border-radius: 50%;
-  background:
-    radial-gradient(circle at 32% 26%, rgba(240, 205, 106, 0.2), transparent 62%),
-    rgba(201, 162, 39, 0.06);
-  box-shadow: 0 0 0 3px rgba(201, 162, 39, 0.06), inset 0 0 14px rgba(201, 162, 39, 0.1);
-  text-shadow: 0 0 16px rgba(232, 185, 63, 0.35);
-  padding-bottom: 2px;
+  width: auto;
+  height: 58px;
+  display: block;
+  filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.7));
 }
 
 .hdr-title-wrap {
@@ -90,7 +80,7 @@
 }
 
 .hdr-title-em {
-  color: var(--gold-400);
+  color: var(--accent-300);
   font-weight: 600;
   font-style: italic;
   letter-spacing: 0.006em;
@@ -108,13 +98,13 @@
 }
 
 .hdr-sub-num {
-  color: var(--gold-600);
+  color: var(--accent-600);
   font-weight: 600;
 }
 
 .hdr-dot {
   padding: 0 8px;
-  color: var(--gold-700);
+  color: var(--accent-700);
 }
 
 .hdr-actions {
@@ -133,7 +123,7 @@
   letter-spacing: 0.08em;
   text-transform: uppercase;
   color: var(--parchment-faint);
-  background: rgba(236, 227, 210, 0.03);
+  background: rgba(232, 238, 247, 0.03);
   border: 1px solid var(--panel-border-soft);
   border-radius: 99px;
   cursor: pointer;
@@ -143,14 +133,14 @@
 
 .hdr-btn:hover {
   color: var(--parchment);
-  border-color: rgba(201, 162, 39, 0.35);
-  background: rgba(201, 162, 39, 0.07);
+  border-color: rgba(58, 124, 201, 0.35);
+  background: rgba(58, 124, 201, 0.07);
 }
 
 .hdr-btn.is-on {
-  color: var(--gold-400);
-  border-color: rgba(201, 162, 39, 0.42);
-  background: rgba(201, 162, 39, 0.1);
+  color: var(--accent-300);
+  border-color: rgba(58, 124, 201, 0.42);
+  background: rgba(58, 124, 201, 0.1);
 }
 
 .hdr-icon {
@@ -279,7 +269,7 @@
   top: 0;
   z-index: 2;
   height: 22px;
-  background: linear-gradient(180deg, rgba(14, 16, 21, 0.98), rgba(14, 16, 21, 0.6));
+  background: linear-gradient(180deg, rgba(11, 16, 27, 0.98), rgba(11, 16, 27, 0.6));
   border-radius: 16px 16px 0 0;
 }
 
@@ -315,7 +305,7 @@
 
 .sheet-close:hover {
   color: var(--parchment);
-  background: rgba(236, 227, 210, 0.06);
+  background: rgba(232, 238, 247, 0.06);
 }
 
 .sheet-body {
@@ -360,9 +350,9 @@
 }
 
 .tab.is-on {
-  color: var(--gold-400);
-  background: rgba(201, 162, 39, 0.1);
-  border-color: rgba(201, 162, 39, 0.3);
+  color: var(--accent-300);
+  background: rgba(58, 124, 201, 0.1);
+  border-color: rgba(58, 124, 201, 0.3);
 }
 
 .tab-badge {
@@ -372,23 +362,21 @@
   font-variant-numeric: tabular-nums;
   letter-spacing: 0;
   color: var(--parchment-dim);
-  background: rgba(236, 227, 210, 0.08);
+  background: rgba(232, 238, 247, 0.08);
   border-radius: 99px;
 }
 
 .tab-badge.is-dirty {
   color: var(--ink-900);
-  background: var(--gold-500);
+  background: var(--accent-500);
 }
 
 @media (max-width: 900px) {
   .app-header {
     padding: 0 14px;
   }
-  .monogram {
-    width: 32px;
-    height: 32px;
-    font-size: 19px;
+  .seal-mark {
+    height: 46px;
   }
   .hdr-title {
     font-size: 18px;

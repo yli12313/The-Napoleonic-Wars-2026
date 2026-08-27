@@ -28,7 +28,7 @@ export const CONFLICTS: ConflictMeta[] = [
     headlineRange: '1792–1797',
     allowedFrom: '1793-01-01',
     allowedTo: '1797-10-31',
-    color: '#c9a227',
+    color: '#3fc0c6',
   },
   {
     id: 'second-coalition',
@@ -37,7 +37,7 @@ export const CONFLICTS: ConflictMeta[] = [
     headlineRange: '1798–1802',
     allowedFrom: '1798-05-01',
     allowedTo: '1802-03-31',
-    color: '#d98f4a',
+    color: '#59b96f',
   },
   {
     id: 'third-coalition',
@@ -46,7 +46,7 @@ export const CONFLICTS: ConflictMeta[] = [
     headlineRange: '1805',
     allowedFrom: '1805-08-01',
     allowedTo: '1805-12-31',
-    color: '#8fb8de',
+    color: '#8f7fe0',
   },
   {
     id: 'fourth-coalition',
@@ -55,7 +55,7 @@ export const CONFLICTS: ConflictMeta[] = [
     headlineRange: '1806–1807',
     allowedFrom: '1806-09-01',
     allowedTo: '1807-07-31',
-    color: '#5f8ec4',
+    color: '#b678d6',
   },
   {
     id: 'fifth-coalition',
@@ -64,7 +64,7 @@ export const CONFLICTS: ConflictMeta[] = [
     headlineRange: '1808–1809',
     allowedFrom: '1808-11-01',
     allowedTo: '1809-10-31',
-    color: '#a58bc9',
+    color: '#dd6fa8',
   },
   {
     id: 'sixth-coalition',
@@ -73,7 +73,7 @@ export const CONFLICTS: ConflictMeta[] = [
     headlineRange: '1812–1814',
     allowedFrom: '1812-06-01',
     allowedTo: '1814-04-30',
-    color: '#c9736b',
+    color: '#d4675f',
   },
   {
     id: 'seventh-coalition',
@@ -82,7 +82,7 @@ export const CONFLICTS: ConflictMeta[] = [
     headlineRange: '1815',
     allowedFrom: '1815-06-01',
     allowedTo: '1815-07-31',
-    color: '#7fae9b',
+    color: '#cf7c3a',
   },
 ];
 
@@ -93,14 +93,14 @@ export const CONFLICT_BY_ID: Record<Conflict, ConflictMeta> = Object.fromEntries
 export const CONFLICT_IDS: Conflict[] = CONFLICTS.map((c) => c.id);
 
 export const RESULTS: { id: Result; label: string; color: string }[] = [
-  { id: 'victory', label: 'Victory', color: '#e8b93f' },
-  { id: 'defeat', label: 'Defeat', color: '#5b8fd6' },
+  { id: 'victory', label: 'Victory', color: '#5d9cec' },
+  { id: 'defeat', label: 'Defeat', color: '#e8b93f' },
   { id: 'inconclusive', label: 'Inconclusive', color: '#9aa3ad' },
 ];
 
 export const RESULT_COLOR: Record<Result, string> = {
-  victory: '#e8b93f',
-  defeat: '#5b8fd6',
+  victory: '#5d9cec',
+  defeat: '#e8b93f',
   inconclusive: '#9aa3ad',
 };
 

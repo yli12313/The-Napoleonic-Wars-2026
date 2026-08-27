@@ -22,7 +22,7 @@ interface Props {
 
 const ANIM = { isAnimationActive: true, animationDuration: 260, animationEasing: 'ease-out' } as const;
 
-const AXIS = { fill: '#7f8794', fontSize: 10, fontFamily: 'Inter, sans-serif' } as const;
+const AXIS = { fill: '#75839a', fontSize: 10, fontFamily: 'Inter, sans-serif' } as const;
 
 interface TipPayload {
   name?: string;
@@ -140,7 +140,7 @@ export default function StatsPanel({ battles, total }: Props) {
                     width={54}
                   />
                   <Tooltip
-                    cursor={{ fill: 'rgba(236,227,210,0.05)' }}
+                    cursor={{ fill: 'rgba(232,238,247,0.05)' }}
                     content={<DarkTooltip titleKey="label" />}
                   />
                   <Bar
@@ -182,15 +182,15 @@ export default function StatsPanel({ battles, total }: Props) {
             <div className="chart-frame" style={{ height: 132 }}>
               <ResponsiveContainer width="100%" height="100%">
                 <BarChart data={byYear} margin={{ top: 6, right: 6, bottom: 0, left: -22 }}>
-                  <CartesianGrid stroke="rgba(236,227,210,0.06)" vertical={false} />
+                  <CartesianGrid stroke="rgba(232,238,247,0.06)" vertical={false} />
                   <XAxis dataKey="label" tick={AXIS} axisLine={false} tickLine={false} interval={1} />
                   <YAxis tick={AXIS} axisLine={false} tickLine={false} allowDecimals={false} width={34} />
-                  <Tooltip cursor={{ fill: 'rgba(236,227,210,0.05)' }} content={<DarkTooltip />} />
+                  <Tooltip cursor={{ fill: 'rgba(232,238,247,0.05)' }} content={<DarkTooltip />} />
                   <Bar dataKey="battles" name="Battles" radius={[2, 2, 0, 0]} maxBarSize={16} {...ANIM}>
                     {byYear.map((y) => (
                       <Cell
                         key={y.year}
-                        fill={y.battles >= 8 ? '#f0cd6a' : y.battles >= 4 ? '#c9a227' : '#8c6f18'}
+                        fill={y.battles >= 8 ? '#a5c9f5' : y.battles >= 4 ? '#3a7cc9' : '#23547f'}
                       />
                     ))}
                   </Bar>
@@ -206,15 +206,15 @@ export default function StatsPanel({ battles, total }: Props) {
                 <AreaChart data={byYear} margin={{ top: 6, right: 6, bottom: 0, left: -12 }}>
                   <defs>
                     <linearGradient id="grad-fr" x1="0" y1="0" x2="0" y2="1">
-                      <stop offset="0%" stopColor="#e8b93f" stopOpacity={0.55} />
-                      <stop offset="100%" stopColor="#e8b93f" stopOpacity={0.02} />
+                      <stop offset="0%" stopColor="#5d9cec" stopOpacity={0.55} />
+                      <stop offset="100%" stopColor="#5d9cec" stopOpacity={0.02} />
                     </linearGradient>
                     <linearGradient id="grad-op" x1="0" y1="0" x2="0" y2="1">
-                      <stop offset="0%" stopColor="#5b8fd6" stopOpacity={0.45} />
-                      <stop offset="100%" stopColor="#5b8fd6" stopOpacity={0.02} />
+                      <stop offset="0%" stopColor="#e8b93f" stopOpacity={0.45} />
+                      <stop offset="100%" stopColor="#e8b93f" stopOpacity={0.02} />
                     </linearGradient>
                   </defs>
-                  <CartesianGrid stroke="rgba(236,227,210,0.06)" vertical={false} />
+                  <CartesianGrid stroke="rgba(232,238,247,0.06)" vertical={false} />
                   <XAxis dataKey="label" tick={AXIS} axisLine={false} tickLine={false} interval={1} />
                   <YAxis
                     tick={AXIS}
@@ -228,7 +228,7 @@ export default function StatsPanel({ battles, total }: Props) {
                     type="linear"
                     dataKey="frenchCasualties"
                     name="French"
-                    stroke="#e8b93f"
+                    stroke="#5d9cec"
                     strokeWidth={1.6}
                     fill="url(#grad-fr)"
                     stackId="c"
@@ -238,7 +238,7 @@ export default function StatsPanel({ battles, total }: Props) {
                     type="linear"
                     dataKey="opposingCasualties"
                     name="Opposing"
-                    stroke="#5b8fd6"
+                    stroke="#e8b93f"
                     strokeWidth={1.6}
                     fill="url(#grad-op)"
                     stackId="c"

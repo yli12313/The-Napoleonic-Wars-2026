@@ -1,48 +1,50 @@
 /* ------------------------------------------------------------------
    Design tokens -- Empire-era cartography in a modern dark UI.
-   Ground: near-black charcoal.  Accents: antique gold + parchment.
-   Secondary: imperial French blue.
+   Ground: deep navy.  Primary accent: imperial French blue.
+   Secondary: antique gold, reserved for defeats.
    ------------------------------------------------------------------ */
 :root {
   /* ground */
-  --ink-900: #07080b;
-  --ink-850: #0a0b0e;
-  --ink-800: #101216;
-  --ink-750: #15181e;
-  --ink-700: #1b1f26;
-  --ink-600: #242933;
-  --ink-500: #333a46;
+  --ink-900: #060911;
+  --ink-850: #080c15;
+  --ink-800: #0d121c;
+  --ink-750: #121826;
+  --ink-700: #18202f;
+  --ink-600: #212b3d;
+  --ink-500: #303c52;
 
-  /* parchment / text */
-  --parchment: #ece3d2;
-  --parchment-dim: #c8bfae;
-  --parchment-faint: #8e8879;
-  --muted: #7f8794;
+  /* paper / text */
+  --parchment: #e8eef7;
+  --parchment-dim: #b9c6d8;
+  --parchment-faint: #8494a8;
+  --muted: #75839a;
 
-  /* gold */
-  --gold-400: #f0cd6a;
-  --gold-500: #e8b93f;
-  --gold-600: #c9a227;
-  --gold-700: #8c6f18;
-  --gold-glow: rgba(232, 185, 63, 0.28);
+  /* imperial blue -- the primary accent */
+  --accent-200: #cfe2fb;
+  --accent-300: #a5c9f5;
+  --accent-400: #7fb1ee;
+  --accent-500: #5d9cec;
+  --accent-600: #3a7cc9;
+  --accent-700: #23547f;
+  --accent-800: #16344f;
+  --accent-glow: rgba(93, 156, 236, 0.3);
 
-  /* imperial blue */
-  --blue-300: #9dc0ea;
-  --blue-400: #7ba8de;
-  --blue-500: #5b8fd6;
-  --blue-600: #3d6aa8;
-  --blue-800: #1e3557;
+  /* antique gold -- secondary, carries the defeat encoding */
+  --amber-300: #f6d98a;
+  --amber-400: #f0cd6a;
+  --amber-500: #e8b93f;
+  --amber-600: #c9a227;
 
   /* semantic (result encoding) */
-  --result-victory: #e8b93f;
-  --result-defeat: #5b8fd6;
+  --result-victory: #5d9cec;
+  --result-defeat: #e8b93f;
   --result-inconclusive: #9aa3ad;
 
   /* surfaces */
-  --panel-bg: rgba(14, 16, 21, 0.82);
-  --panel-bg-solid: #0e1015;
-  --panel-border: rgba(201, 162, 39, 0.18);
-  --panel-border-soft: rgba(236, 227, 210, 0.08);
+  --panel-bg: rgba(11, 16, 27, 0.82);
+  --panel-bg-solid: #0b101b;
+  --panel-border: rgba(58, 124, 201, 0.2);
+  --panel-border-soft: rgba(210, 226, 245, 0.09);
   --panel-shadow: 0 24px 60px -18px rgba(0, 0, 0, 0.9), 0 2px 0 rgba(255, 255, 255, 0.02) inset;
 
   /* type */
@@ -83,8 +85,8 @@ body,
 
 body {
   background:
-    radial-gradient(1200px 700px at 22% -12%, rgba(60, 46, 12, 0.5), transparent 60%),
-    radial-gradient(900px 620px at 92% 108%, rgba(20, 36, 62, 0.55), transparent 62%),
+    radial-gradient(1200px 700px at 22% -12%, rgba(24, 58, 106, 0.55), transparent 60%),
+    radial-gradient(900px 620px at 92% 108%, rgba(16, 40, 78, 0.6), transparent 62%),
     var(--ink-900);
   color: var(--parchment);
   font-family: var(--font-ui);
@@ -104,13 +106,13 @@ select {
 }
 
 :focus-visible {
-  outline: 2px solid var(--gold-500);
+  outline: 2px solid var(--accent-500);
   outline-offset: 2px;
   border-radius: var(--r-sm);
 }
 
 ::selection {
-  background: var(--gold-600);
+  background: var(--accent-600);
   color: var(--ink-900);
 }
 
@@ -161,7 +163,7 @@ select {
   position: relative;
 }
 
-/* A hairline of gold along the top edge, like a gilt rule on an old plate. */
+/* A hairline of blue along the top edge, like an engraved rule on an old plate. */
 .panel::before {
   content: '';
   position: absolute;
@@ -170,8 +172,8 @@ select {
   background: linear-gradient(
     90deg,
     transparent,
-    rgba(201, 162, 39, 0.55) 18%,
-    rgba(201, 162, 39, 0.55) 82%,
+    rgba(58, 124, 201, 0.55) 18%,
+    rgba(58, 124, 201, 0.55) 82%,
     transparent
   );
   border-radius: var(--r-lg) var(--r-lg) 0 0;
@@ -191,7 +193,7 @@ select {
   font-weight: 600;
   letter-spacing: 0.16em;
   text-transform: uppercase;
-  color: var(--gold-600);
+  color: var(--accent-600);
   margin: 0;
 }
 

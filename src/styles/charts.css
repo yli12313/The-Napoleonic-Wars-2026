@@ -15,7 +15,7 @@
 .tile {
   position: relative;
   padding: 10px 11px 11px;
-  background: linear-gradient(160deg, rgba(236, 227, 210, 0.05), rgba(236, 227, 210, 0.015));
+  background: linear-gradient(160deg, rgba(232, 238, 247, 0.05), rgba(232, 238, 247, 0.015));
   border: 1px solid var(--panel-border-soft);
   border-radius: var(--r-md);
   overflow: hidden;
@@ -33,7 +33,7 @@
   width: 110px;
   height: 110px;
   border-radius: 50%;
-  background: radial-gradient(circle, rgba(201, 162, 39, 0.16), transparent 68%);
+  background: radial-gradient(circle, rgba(58, 124, 201, 0.16), transparent 68%);
   pointer-events: none;
 }
 
@@ -63,11 +63,11 @@
 }
 
 .tile-value.is-victory {
-  color: var(--gold-400);
+  color: var(--accent-300);
 }
 
 .tile-value.is-defeat {
-  color: var(--blue-400);
+  color: var(--amber-400);
 }
 
 .tile-sub {
@@ -149,8 +149,8 @@
 .chart-tip {
   min-width: 128px;
   padding: 8px 10px;
-  background: rgba(10, 12, 16, 0.96);
-  border: 1px solid rgba(201, 162, 39, 0.28);
+  background: rgba(8, 12, 21, 0.96);
+  border: 1px solid rgba(58, 124, 201, 0.28);
   border-radius: 8px;
   box-shadow: 0 14px 34px -12px rgba(0, 0, 0, 0.95);
   -webkit-backdrop-filter: blur(10px);

@@ -34,9 +34,11 @@ Requires Node 18+. Tested on Node 25.
 
 ### The map
 
-- CARTO **dark_matter** raster tiles (`{s}.basemaps.cartocdn.com/dark_all/…`),
-  attributed to OpenStreetMap contributors and CARTO in the bottom-right control,
-  warmed slightly towards aged paper with a CSS filter.
+- Esri **Dark Gray Canvas** raster tiles (`services.arcgisonline.com/…/Canvas/
+  World_Dark_Gray_{Base,Reference}`) — keyless, and split into ground and label
+  layers so each can be graded separately. Attributed to Esri and OpenStreetMap
+  contributors in the bottom-right control, warmed towards aged paper with a
+  CSS filter.
 - Framed on Europe at load, pannable to Egypt, the Levant and Moscow, with
   `maxBounds` that stop you drifting into open ocean and zoom clamped to 3–13.
 - **Custom `divIcon` markers**, entirely CSS-styled:
@@ -125,6 +127,20 @@ Warfare in the Age of Napoleon*, Charles Esdaile's *Napoleon's Wars*, and the
 per-battle consensus reflected in Wikipedia's Napoleonic battle articles and the
 Napoleon Series archives. Coordinates are the modern location of the battlefield
 or of the town the battle is named for.
+
+### The imperial arms
+
+The mark in the header and the favicon are the arms of the First French Empire —
+the crowned eagle on the round shield, ringed by the collar of the Légion
+d'honneur and mantled in ermine. Drawn by
+[Katepanomegas](https://commons.wikimedia.org/wiki/User:Katepanomegas) (some
+elements by [Sodacan](https://commons.wikimedia.org/wiki/User:Sodacan)) and
+published on Wikimedia Commons as
+[Coat of arms of the First French Empire, round shield version.svg](https://commons.wikimedia.org/wiki/File:Coat_of_arms_of_the_First_French_Empire,_round_shield_version.svg)
+under [CC BY-SA 3.0](https://creativecommons.org/licenses/by-sa/3.0/). The
+originals are vector; `public/napoleon-arms.webp` and `public/favicon.png` are
+rasterisations of them at display size, and carry the same licence. The credit
+also rides in the map's attribution control, so the running app carries it too.
 
 **Figures are rounded mid-range estimates, not archival counts.** Napoleonic
 returns are unreliable by nature — French bulletins understated losses as

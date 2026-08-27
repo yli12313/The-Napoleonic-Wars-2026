@@ -32,9 +32,14 @@ export default function Header({
   return (
     <header className="app-header">
       <div className="hdr-left">
-        <span className="monogram" aria-hidden="true">
-          N
-        </span>
+        <img
+          className="seal-mark"
+          src="/napoleon-arms.webp"
+          width={54}
+          height={64}
+          alt=""
+          aria-hidden="true"
+        />
         <div className="hdr-title-wrap">
           <h1 className="hdr-title">
             The Battles of <span className="hdr-title-em">Napoleon Bonaparte</span>
