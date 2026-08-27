@@ -1,4 +1,4 @@
-# The Battles of Napoleon Bonaparte
+# The Battles of Napoleon Bonaparte 🇫🇷
 
 <img width="1708" height="884" alt="image" src="https://github.com/user-attachments/assets/2964b79c-11cc-4a2e-bcd0-71b2e647acc0" />
 
